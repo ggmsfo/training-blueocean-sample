@@ -10,6 +10,7 @@ pipeline {
     stage('build') {
       steps {
         sh './jenkins/build.sh'
+        archiveArtifacts 'target/*.war'
       }
     }
     stage('test') {
