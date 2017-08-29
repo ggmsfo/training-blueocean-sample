@@ -12,5 +12,11 @@ pipeline {
         sh './jenkins/build.sh'
       }
     }
+    stage('test') {
+      steps {
+        sh './jenkins/test-all.sh'
+        junit '**/surefire-reports/**/*.xml'
+      }
+    }
   }
 }
